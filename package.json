@@ -3,7 +3,7 @@
 	"version": "0.0.1",
 	"private": true,
 	"scripts": {
-		"dev": "vite dev",
+		"dev": "pnpm sb:start && vite dev",
 		"build": "vite build",
 		"preview": "vite preview",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
@@ -11,7 +11,7 @@
 		"test": "vitest",
 		"lint": "prettier --plugin-search-dir . --check . && eslint .",
 		"format": "prettier --plugin-search-dir . --write .",
-		"sb:start": "supabase start && supabase status -o env > .env.local",
+		"sb:start": "supabase start --exclude edge-runtime && supabase status -o env > .env.local",
 		"sb:stop": "supabase stop",
 		"sb:reset": "supabase db reset",
 		"sb:migration:new": "supabase migration new",
